@@ -1,4 +1,4 @@
-package no.hvl.dat108;
+package no.hvl.dat108.oppg2;
 
 /**
  * A consumer that consumes items and remove items from a shared buffer. The
