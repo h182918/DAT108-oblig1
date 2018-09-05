@@ -3,6 +3,8 @@
  */
 package no.hvl.dat108.oppg3;
 
+import java.util.function.Function;
+
 /**
  * @author jocef
  *
@@ -13,9 +15,9 @@ public class Ansatt {
 	private String etternavn;
 	private char kjonn;
 	private String stilling;
-	private int aarslonn;
+	private double aarslonn;
 	
-	public Ansatt(String fornavn, String etternavn, char kjonn, String stilling, int aarslonn) {
+	public Ansatt(String fornavn, String etternavn, char kjonn, String stilling, double aarslonn) {
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
 		this.kjonn = kjonn;
@@ -55,11 +57,11 @@ public class Ansatt {
 		this.stilling = stilling;
 	}
 
-	public int getAarslonn() {
+	public double getAarslonn() {
 		return aarslonn;
 	}
 
-	public void setAarslonn(int aarslonn) {
+	public void setAarslonn(double aarslonn) {
 		this.aarslonn = aarslonn;
 	}
 
@@ -68,6 +70,11 @@ public class Ansatt {
 		return "Ansatt [fornavn=" + fornavn + ", etternavn=" + etternavn + ", kjonn=" + kjonn + ", stilling=" + stilling
 				+ ", aarslonn=" + aarslonn + "]";
 	}
+	
+	public Double endreLonn(Function<Double, Double> nyVerdi) {
+		return this.aarslonn = nyVerdi.apply(getAarslonn());
+	}
+
 
 	
 	
