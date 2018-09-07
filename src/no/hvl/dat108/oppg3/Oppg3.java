@@ -25,7 +25,7 @@ public class Oppg3 {
 //		System.out.println(c);
 		
 		Function<Double, Double> fastKrone = n -> n + 20000;
-		Function<Double, Double> prosentTillegg = n -> n * 1.04;
+		Function<Double, Double> prosentTillegg = n -> n * 1.07;
 		
 		a.endreLonn(fastKrone);
 		b.endreLonn(prosentTillegg);
