@@ -7,13 +7,17 @@ package no.hvl.dat108.oppg3;
  * @author jocef
  *
  */
-public class Ansatt {
+public class Ansatt{
 	
 	private String fornavn;
 	private String etternavn;
 	private char kjonn;
 	private String stilling;
-	private int aarslonn;
+	private double aarslonn;
+	
+	public Ansatt() {
+		
+	}
 	
 	public Ansatt(String fornavn, String etternavn, char kjonn, String stilling, int aarslonn) {
 		this.fornavn = fornavn;
@@ -55,12 +59,33 @@ public class Ansatt {
 		this.stilling = stilling;
 	}
 
-	public int getAarslonn() {
+	public double getAarslonn() {
 		return aarslonn;
 	}
 
-	public void setAarslonn(int aarslonn) {
+	public void setAarslonn(double aarslonn) {
 		this.aarslonn = aarslonn;
+	}
+	
+	public void endreLonn(double tall) {
+		double tillegg = 0;
+		double prosent = 0;
+		// setter maks %-økning til 100%
+		if(tall > 1 && tall <= 1) {
+		    prosent = 1 + tall;
+		}else {
+			 tillegg = tall;
+		}
+		//endre med fast kronetillegg
+        if(tillegg > 1) {
+        	aarslonn += tillegg;
+        //endre hvis lønn er for lav
+        }else if(aarslonn < 300000) {
+        	aarslonn += 50000;
+        // endre hvis lønn med %
+        }else {
+        	aarslonn = aarslonn * prosent;
+        }
 	}
 
 	@Override
@@ -68,9 +93,6 @@ public class Ansatt {
 		return "Ansatt [fornavn=" + fornavn + ", etternavn=" + etternavn + ", kjonn=" + kjonn + ", stilling=" + stilling
 				+ ", aarslonn=" + aarslonn + "]";
 	}
-
-	
-	
 	
 
 }
