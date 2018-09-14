@@ -44,7 +44,13 @@ public class Buffer {
      * @return next item
      */
     public Integer remove() {
-    	Integer back = 0;
+    	Integer back = null;
+    	try {
+			Thread.sleep(50);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
         while (true) {
             // TODO
         	if(buffer.size() > 0) {

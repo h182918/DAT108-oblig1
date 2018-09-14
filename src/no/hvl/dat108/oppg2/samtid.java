@@ -12,4 +12,12 @@ public class samtid {
 		t2.start();
 		
 	}
+	
+	
+	/*//2d)
+ 	 *Svar: Grunnen til at man kunne synkronisert dem er fordi utskrift fra produsering og 
+ 	 *konsumering skal være samkjørt, i form av at den vil produsere et element og deretter konsumere et element osv.
+     *Med dette vil vi unngå at det vil komme utskrift for to eller 
+     *flere produksjoner før den vil skrive ut en konsumering.  
+	 */
 }
