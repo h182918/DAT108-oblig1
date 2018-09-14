@@ -32,22 +32,24 @@ public class Oppg3 {
 			return n;
 		};
 
+		
 		Function<Double, Double> prosentTillegg = n -> n * 1.07;
 
 		a.endreLonn(fastKroneLavLonn);
 		b.endreLonn(prosentTillegg);
 		c.endreLonn(fastKrone());
 
-		
 		System.out.println("Etter gjennomgang av lønn: ");
 		System.out.println(a);
 		System.out.println(b);
 		System.out.println(c);
 
+
 	}
 
 	public static Function<Double, Double> fastKrone() {
 		return (n -> n + 20000);
+
 
 	}
 

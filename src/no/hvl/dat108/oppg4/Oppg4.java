@@ -6,15 +6,9 @@ package no.hvl.dat108.oppg4;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import no.hvl.dat108.oppg3.Ansatt;
 
 /**
@@ -33,9 +27,9 @@ public class Oppg4 {
 		Ansatt a3 = new Ansatt("Kari", "Mø", 'K', "Tele", 460000);
 		Ansatt a4 = new Ansatt("Are", "Lie", 'M', "Salg", 350000);
 		Ansatt a5 = new Ansatt("Lars", "Moe", 'M', "Sjef", 1000000);
-		Ansatt a6 = new Ansatt("Trine", "Lie", 'K', "Tele", 490000);
+		Ansatt a6 = new Ansatt("Trine", "Lie", 'K', "Tele", 450000);
 		Ansatt a7 = new Ansatt("Knut", "Jonsen", 'M', "Salg", 410000);
-		Ansatt a8 = new Ansatt("Siri", "Sjur", 'K', "Sjef", 600000);
+		Ansatt a8 = new Ansatt("Siri", "Sjur", 'K', "Sjef", 450000);
 		
 		List<Ansatt> ansatte = new ArrayList<Ansatt>();
 		ansatte.add(a1);
@@ -70,7 +64,7 @@ public class Oppg4 {
 		Stream<Ansatt> Damene = ansatte.stream().filter(n -> n.getKjonn() == 'K');
 		Damene.mapToDouble(n -> n.getAarslonn()).average().ifPresent( x -> System.out.println(x));
 	
-		
+
 //		d) Gi alle sjefer (stilling = "sjef") en lønnsøkning på 7% (Bruk løsning fra Oppg3)
 		System.out.println("Lønn til sjefene etter økning: ");
 		ansatte.stream().filter(n -> n.getStilling() == "Sjef")
@@ -93,13 +87,14 @@ public class Oppg4 {
 		System.out.println(ansatte.stream().filter(x -> x.getAarslonn() == minst).collect(toList()));
 	
 //		h) Finn og skriv ut summen av alle heltall i [1, 1000> som er delelig med 3 eller 5.
+
 		Stream<Integer> htall = heltall.stream().filter(x ->(x % 3 == 0 || x % 5 == 0));
 		List<Integer> delelig = htall.collect(Collectors.toList());
 		int summen = delelig.stream().collect(Collectors.summingInt(Integer::intValue));
 		System.out.println("Summen av heltall delelig på 3 og 5 er: " + summen);	
 			
 		
-		
+
 	}
 
 }
